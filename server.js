@@ -12,11 +12,11 @@ app.use(bodyparser.urlencoded({extended:false}));
 app.use(cors());
 
 
-app.use(express.static(__dirname+"/dist/webapp"));
+app.use(express.static(path.join(__dirname,"dist","webapp")));
 app.use('/',apiroutes);
 
 app.get('/*',function(req,res){
-  res.sendFile(path.join(__dirname+"/dist/webapp/index.html"))
+  res.sendFile(__dirname+"/dist/webapp/index.html");
 })
 
 
