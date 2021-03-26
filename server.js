@@ -30,7 +30,7 @@ app.use((req,res,next)=>{
 })
 
 
-const port = process.env.PORT || 4200;
+const port = process.env.PORT || 8080;
 
 app.listen(port,()=>{
     console.log('Server is running at http://localhost:'+port);
