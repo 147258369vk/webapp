@@ -12,8 +12,15 @@ app.use(bodyparser.urlencoded({extended:false}));
 app.use(cors());
 
 
-
+app.use(express.static(__dirname+"/dist/webapp"));
 app.use('/',apiroutes);
+
+app.get('/*',function(req,res){
+  res.sendFile(path.join(__dirname+"/dist/webapp/index.html"))
+})
+
+
+
 
 app.use((req,res,next)=>{
   res.setHeader('Access-Control-Allow-Origin','*'),
@@ -22,11 +29,6 @@ app.use((req,res,next)=>{
     res.setHeader('Access-Control-Allow-Headers','Origin, Content-Type, Accept')
 })
 
-app.use(express.static(__dirname+"/dist/webapp"));
-
-app.get('/*',function(req,res){
-  res.sendFile(path.join(__dirname+"/dist/webapp/index.html"))
-})
 
 const port = process.env.PORT || 4200;
 
