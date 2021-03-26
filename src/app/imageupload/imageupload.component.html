@@ -1,0 +1,10 @@
+
+<div class="container">
+
+  <form enctype="multipart/form-data">
+    <input type="file" name="photo" ng2FileSelect [uploader]="uploader">
+    <br><br>
+    <button type="submit" (click)="uploader.uploadAll()" [disabled]="!uploader.uploadItem.length">Submit</button>
+  </form>
+
+  </div>
